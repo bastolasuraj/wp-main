@@ -1,0 +1,400 @@
+/*
+Theme Name: Sblogical
+Theme URI: https://sblogical.com
+Author: Sblogical
+Author URI: https://sblogical.com
+Description: A clean editorial WordPress theme tailored for sblogical.com.
+Version: 1.0.0
+Requires at least: 6.7
+Tested up to: 6.9
+Requires PHP: 8.0
+Text Domain: sblogical
+*/
+
+:root {
+  --sblogical-bg: #f3f6fb;
+  --sblogical-surface: #ffffff;
+  --sblogical-ink: #0f172a;
+  --sblogical-muted: #334155;
+  --sblogical-soft: #64748b;
+  --sblogical-border: #dbe4f0;
+  --sblogical-accent: #0b63f3;
+  --sblogical-accent-strong: #0848b8;
+  --sblogical-success: #00867f;
+  --sblogical-radius: 16px;
+  --sblogical-shadow: 0 12px 40px rgba(10, 25, 66, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--sblogical-ink);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(11, 99, 243, 0.15), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(0, 134, 127, 0.14), transparent 35%),
+    var(--sblogical-bg);
+  font-family: "Manrope", "Avenir Next", "Trebuchet MS", sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--sblogical-accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--sblogical-accent-strong);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  margin: 20px auto 0;
+  position: sticky;
+  top: 12px;
+  z-index: 10;
+}
+
+.top-bar {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--sblogical-border);
+  border-radius: calc(var(--sblogical-radius) + 4px);
+  box-shadow: var(--sblogical-shadow);
+  backdrop-filter: blur(8px);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.brand__name {
+  display: inline-block;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--sblogical-ink);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", "Manrope", "Avenir Next", sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.brand__tagline {
+  margin: 2px 0 0;
+  color: var(--sblogical-soft);
+  font-size: 0.9rem;
+}
+
+.primary-nav {
+  flex: 1;
+}
+
+.menu,
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: var(--sblogical-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a:focus,
+.menu .current-menu-item > a,
+.menu .current_page_item > a {
+  color: var(--sblogical-accent);
+}
+
+.site-main {
+  padding: 36px 0 60px;
+}
+
+.hero {
+  border: 1px solid var(--sblogical-border);
+  border-radius: 24px;
+  padding: clamp(28px, 5vw, 60px);
+  background:
+    linear-gradient(125deg, rgba(11, 99, 243, 0.08), rgba(0, 134, 127, 0.08)),
+    var(--sblogical-surface);
+  box-shadow: var(--sblogical-shadow);
+}
+
+.hero__kicker {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sblogical-soft);
+}
+
+.hero__title {
+  margin: 12px 0 14px;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.1;
+}
+
+.hero__lead {
+  margin: 0;
+  max-width: 720px;
+  color: var(--sblogical-muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.button--primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--sblogical-accent), var(--sblogical-success));
+}
+
+.button--primary:hover,
+.button--primary:focus {
+  color: #ffffff;
+  filter: brightness(0.95);
+}
+
+.button--ghost {
+  background: #ffffff;
+  color: var(--sblogical-muted);
+  border-color: var(--sblogical-border);
+}
+
+.section {
+  margin-top: 40px;
+}
+
+.section__title {
+  margin: 0 0 8px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.section__intro {
+  margin: 0;
+  color: var(--sblogical-soft);
+}
+
+.grid {
+  margin-top: 18px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.card {
+  grid-column: span 4;
+  border: 1px solid var(--sblogical-border);
+  border-radius: var(--sblogical-radius);
+  background: var(--sblogical-surface);
+  box-shadow: var(--sblogical-shadow);
+  padding: 22px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.post-card {
+  grid-column: span 4;
+  border: 1px solid var(--sblogical-border);
+  border-radius: var(--sblogical-radius);
+  background: var(--sblogical-surface);
+  padding: 22px;
+  box-shadow: var(--sblogical-shadow);
+}
+
+.post-card h2,
+.post-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.post-meta {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: var(--sblogical-soft);
+}
+
+.entry {
+  border: 1px solid var(--sblogical-border);
+  border-radius: 22px;
+  background: var(--sblogical-surface);
+  box-shadow: var(--sblogical-shadow);
+  padding: clamp(20px, 4vw, 42px);
+}
+
+.entry h1 {
+  margin-top: 0;
+  line-height: 1.2;
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+}
+
+.entry-content {
+  color: var(--sblogical-muted);
+}
+
+.entry-content p:first-child {
+  font-size: 1.08rem;
+}
+
+.archive-header {
+  margin-bottom: 24px;
+}
+
+.wp-block-image,
+.alignwide {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pagination {
+  margin-top: 24px;
+}
+
+.pagination .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--sblogical-border);
+  background: var(--sblogical-surface);
+  color: var(--sblogical-muted);
+}
+
+.pagination .page-numbers.current {
+  color: #ffffff;
+  background: var(--sblogical-accent);
+  border-color: var(--sblogical-accent);
+}
+
+.site-footer {
+  margin: 18px auto 30px;
+}
+
+.footer-wrap {
+  border: 1px solid var(--sblogical-border);
+  border-radius: var(--sblogical-radius);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  margin: 0;
+  color: var(--sblogical-soft);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 940px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primary-nav {
+    width: 100%;
+  }
+
+  .menu,
+  .menu ul {
+    justify-content: flex-start;
+  }
+
+  .card,
+  .post-card {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    position: static;
+    margin-top: 12px;
+  }
+
+  .site-main {
+    padding-top: 20px;
+  }
+
+  .card,
+  .post-card {
+    grid-column: span 12;
+  }
+
+  .entry {
+    padding: 22px;
+  }
+}

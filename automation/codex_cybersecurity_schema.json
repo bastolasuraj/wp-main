@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nepal Election Candidate Profile Auto Post",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["publish", "skip"]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 8
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "excerpt": {
+      "type": "string",
+      "maxLength": 320
+    },
+    "topic_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 50
+      },
+      "minItems": 3,
+      "maxItems": 12
+    },
+    "content_html": {
+      "type": "string",
+      "minLength": 1800
+    },
+    "candidate_profile": {
+      "type": "object",
+      "properties": {
+        "candidate_name": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "election_name": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "election_date": {
+          "type": "string",
+          "maxLength": 30
+        },
+        "party": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "constituency": {
+          "type": "string",
+          "maxLength": 140
+        },
+        "current_position": {
+          "type": "string",
+          "maxLength": 140
+        },
+        "short_bio": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "profile_source_url": {
+          "type": "string",
+          "pattern": "^https?://"
+        },
+        "profile_image_url": {
+          "type": "string",
+          "pattern": "^$|^https?://"
+        },
+        "profile_image_source_url": {
+          "type": "string",
+          "pattern": "^$|^https?://"
+        },
+        "profile_image_credit": {
+          "type": "string",
+          "maxLength": 220
+        }
+      },
+      "required": [
+        "candidate_name",
+        "election_name",
+        "election_date",
+        "party",
+        "constituency",
+        "current_position",
+        "short_bio",
+        "profile_source_url",
+        "profile_image_url",
+        "profile_image_source_url",
+        "profile_image_credit"
+      ],
+      "additionalProperties": false
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "focus_keyphrase": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "meta_title": {
+          "type": "string",
+          "maxLength": 65
+        },
+        "meta_description": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "seo_slug_hint": {
+          "type": "string",
+          "maxLength": 120
+        }
+      },
+      "required": [
+        "focus_keyphrase",
+        "meta_title",
+        "meta_description",
+        "seo_slug_hint"
+      ],
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "domain": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 120
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120
+          },
+          "published_date": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 30
+          },
+          "why_reliable": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 250
+          }
+        },
+        "required": [
+          "url",
+          "domain",
+          "publisher",
+          "published_date",
+          "why_reliable"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "key_facts": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact": {
+            "type": "string",
+            "minLength": 24,
+            "maxLength": 280
+          },
+          "supporting_source_urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "minItems": 2,
+            "maxItems": 6
+          },
+          "confidence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "fact",
+          "supporting_source_urls",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "status",
+    "reason",
+    "title",
+    "slug",
+    "excerpt",
+    "topic_keywords",
+    "content_html",
+    "candidate_profile",
+    "seo",
+    "sources",
+    "key_facts"
+  ],
+  "additionalProperties": false
+}
